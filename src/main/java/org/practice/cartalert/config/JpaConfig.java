@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
-@EnableJpaRepositories(basePackages = "org.practice.cartalert.repository")
+@EnableJpaRepositories(basePackages = "org.practice.cartalert.*")
 public class JpaConfig {
 
     @Bean

@@ -22,8 +22,17 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // PK
 
+    @Column(name = "order_id", nullable = false)
+    private Long orderId;
+
+    @Column(name = "cart_item_id", nullable = false)
+    private Long cartItemId;
+
     @Column(name = "product_id", nullable = false)
     private Long productId; // 상품 ID
+
+    @Column(name = "product_name")
+    private String productName; // 상품명
 
     @Column(name = "commerce_order_line_no", length = 255)
     private String commerceOrderLineNo; // 상거래 주문 번호

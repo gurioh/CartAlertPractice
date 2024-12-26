@@ -7,6 +7,8 @@ import org.practice.cartalert.entity.Order;
 import org.practice.cartalert.entity.OrderItem;
 import org.practice.cartalert.repository.OrderItemRepository;
 import org.practice.cartalert.repository.OrderRepository;
+import org.practice.cartalert.service.dto.OrderItemResponseDTO;
+import org.practice.cartalert.service.dto.OrderListResponseDTO;
 import org.practice.cartalert.service.dto.OrderRequestDTO;
 import org.practice.cartalert.service.mapper.OrderItemMapper;
 import org.practice.cartalert.service.mapper.OrderMapper;
@@ -29,8 +31,30 @@ public class OrderService {
 
     private final CartItemService cartItemService;
 
-    public List<Order> findOrderList(Long userId){
-        return orderRepository.findAllByUserId(userId);
+    public List<OrderListResponseDTO> findOrderList(Long userId){
+
+        List<Order> orders = orderRepository.findAllByUserId(userId);
+
+        return orders.stream()
+                .map( ord -> {
+                    List<OrderItem> orderItems = orderItemRepository.findAllByOrderId(ord.getId());
+
+                    return OrderListResponseDTO.builder()
+                            .commerceOrderNo(ord.getCommerceOrderNo())
+                            .status(ord.getStatus())
+                            .totalAmount(ord.getTotalAmount())
+                            .orderItems(orderItems.stream()
+                                    .map( ordi -> OrderItemResponseDTO.builder()
+                                            .price(ordi.getPrice())
+                                            .quantity(ordi.getQuantity())
+                                            .productId(ordi.getProductId())
+                                            .productName(ordi.getProductName())
+                                            .cartItemId(ordi.getCartItemId())
+                                            .build())
+                                    .collect(Collectors.toList()))
+                            .build();
+                })
+                .collect(Collectors.toList());
     }
 
     public Order register(OrderRequestDTO requestDTO) {

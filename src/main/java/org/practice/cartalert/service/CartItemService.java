@@ -39,7 +39,6 @@ public class CartItemService {
         });
     }
 
-
     public List<CartItem> findOrderList(Long userId){
         return cartItemRepository.findAllByUserIdAndIsPurchaseFalse(userId);
     }

@@ -4,6 +4,7 @@ package org.practice.cartalert.controller;
 import lombok.RequiredArgsConstructor;
 import org.practice.cartalert.entity.Order;
 import org.practice.cartalert.service.OrderService;
+import org.practice.cartalert.service.dto.OrderListResponseDTO;
 import org.practice.cartalert.service.dto.OrderRequestDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,8 @@ public class OrderController {
     @GetMapping(value = "/list")
     public ResponseEntity<?> list(@RequestParam("userId") Long userId) {
         try {
-            List<Order> orders = orderService.findOrderList(userId);
-            return ResponseEntity.ok(orders);
+            List<OrderListResponseDTO> orderListDtos = orderService.findOrderList(userId);
+            return ResponseEntity.ok(orderListDtos);
         } catch (Exception e) {
             return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)

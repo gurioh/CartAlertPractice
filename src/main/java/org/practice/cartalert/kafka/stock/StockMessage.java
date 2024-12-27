@@ -1,4 +1,4 @@
-package org.practice.cartalert.kafka;
+package org.practice.cartalert.kafka.stock;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

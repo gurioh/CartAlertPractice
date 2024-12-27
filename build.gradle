@@ -57,6 +57,13 @@ dependencies {
 
     // AssertJ (선택사항 - 더 풍부한 검증 기능)
     testImplementation 'org.assertj:assertj-core'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Metrics (추가적인 메트릭 수집을 위한 의존성)
+    implementation 'io.micrometer:micrometer-core'
+
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 }
 
 tasks.named('test') {

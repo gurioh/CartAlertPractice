@@ -11,11 +11,9 @@ import org.practice.cartalert.service.dto.OrderItemResponseDTO;
 import org.practice.cartalert.service.dto.OrderListResponseDTO;
 import org.practice.cartalert.service.dto.OrderRequestDTO;
 import org.practice.cartalert.service.mapper.OrderItemMapper;
-import org.practice.cartalert.service.mapper.OrderMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -23,7 +21,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderService {
 
-    private final OrderMapper orderMapper;
+//    private final OrderMapper orderMapper;
     private final OrderItemMapper orderItemMapper;
 
     private final OrderRepository orderRepository;
@@ -59,23 +57,19 @@ public class OrderService {
 
     public Order register(OrderRequestDTO requestDTO) {
 
-        Order order = orderMapper.toEntity(requestDTO);
-        orderRepository.save(order);
-
         List<OrderItem> orderItems = requestDTO.getOrderItems()
                                                .stream()
                                                .map( orderItemMapper::toEntity)
                                                .collect(Collectors.toList());
 
-        AtomicInteger seq = new AtomicInteger(0);
-        orderItems.forEach(item -> {
-            item.setCommerceOrderLineNo(String.format("%03d", seq.incrementAndGet()));
-            item.setOrderId(order.getId());
-        });
+        Order newOrder = Order.create(
+                requestDTO.getUserId(),
+                requestDTO.getCommerceOrderNo(),
+                requestDTO.getStatus(),
+                requestDTO.getTotalAmount(),
+                orderItems);
 
-        orderItemRepository.saveAll(orderItems);
-        cartItemService.updateIsPurchased(order.getCommerceOrderNo(), requestDTO.getCartItemIds());
-        return order;
+        return newOrder;
     }
 
 

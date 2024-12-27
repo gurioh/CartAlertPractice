@@ -1,4 +1,4 @@
-package org.practice.cartalert.kafka;
+package org.practice.cartalert.kafka.stock;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class StockConsumer {
 
     @KafkaListener(
             topics = "stock-events",
-            groupId = "${kafka.consumer.group-id}",
+            groupId = "${spring.kafka.consumer.group-id}",
             containerFactory = "kafkaListenerContainerFactory"
     )
     public void consume(

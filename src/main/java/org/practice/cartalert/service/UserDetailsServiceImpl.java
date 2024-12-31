@@ -27,4 +27,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 AuthorityUtils.createAuthorityList(user.getRole())
         );
     }
+
+
+
 }

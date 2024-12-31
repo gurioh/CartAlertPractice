@@ -5,6 +5,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.practice.cartalert.auth.jwt.JwtTokenProvider;
 import org.practice.cartalert.entity.User;
+import org.practice.cartalert.entity.UserAuthToken;
+import org.practice.cartalert.repository.UserAuthTokensRepository;
 import org.practice.cartalert.repository.UserRepository;
 import org.practice.cartalert.service.dto.LoginRequest;
 import org.practice.cartalert.service.dto.LoginResponse;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
 public class AuthService {
 
     private final UserRepository userRepository;
+    private final UserAuthTokensRepository userAuthTokensRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
 
@@ -37,6 +40,15 @@ public class AuthService {
         // 4. JWT 토큰 생성
         String accessToken = jwtTokenProvider.createAccessToken(user.getEmail());
         String refreshToken = jwtTokenProvider.createRefreshToken(user.getEmail());
+
+        //ToDo: token save
+        UserAuthToken userAuthToken = UserAuthToken.create(user.getId()
+                , accessToken
+                , refreshToken
+                , "jwt"
+                , jwtTokenProvider.getExpiration(accessToken));
+
+        userAuthTokensRepository.save(userAuthToken);
 
         // 5. 응답 생성
         return LoginResponse.builder()

@@ -35,7 +35,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             requestURI.equals("/auth/login")) {
             filterChain.doFilter(request, response); // 필터 체인을 계속 진행
         }else{
-            String token = extractTokenFromRequest(request);
+            String token = JwtUtils.extractTokenFromRequest(request);
 
             if (StringUtils.hasText(token) && jwtTokenProvider.validateToken(token)) {
                 Authentication authentication = jwtTokenProvider.getAuthentication(token);
@@ -47,11 +47,4 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     }
 
-    private String extractTokenFromRequest(HttpServletRequest request) {
-        String bearerToken = request.getHeader("Authorization");
-        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring(7);
-        }
-        return null;
-    }
 }

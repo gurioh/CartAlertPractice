@@ -1,7 +1,7 @@
 package org.practice.cartalert.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.practice.cartalert.entity.CartItem;
+import org.practice.cartalert.repository.entity.CartItem;
 import org.practice.cartalert.service.CartItemService;
 import org.practice.cartalert.service.dto.CartRequestDTO;
 import org.springframework.http.HttpStatus;

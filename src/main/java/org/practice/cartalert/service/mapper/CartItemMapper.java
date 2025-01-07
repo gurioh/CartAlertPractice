@@ -3,7 +3,7 @@ package org.practice.cartalert.service.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import org.practice.cartalert.entity.CartItem;
+import org.practice.cartalert.repository.entity.CartItem;
 import org.practice.cartalert.service.dto.CartRequestDTO;
 
 @Mapper(componentModel = "spring")

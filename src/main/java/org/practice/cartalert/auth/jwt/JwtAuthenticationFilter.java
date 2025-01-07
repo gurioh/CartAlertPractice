@@ -32,7 +32,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         // 특정 경로에 대해 인증을 건너뛰기
         if (requestURI.equals("/user/signup") ||
-            requestURI.equals("/auth/login")) {
+            requestURI.equals("/auth/login")  ||
+                requestURI.equals("/product/list")) {
             filterChain.doFilter(request, response); // 필터 체인을 계속 진행
         }else{
             String token = JwtUtils.extractTokenFromRequest(request);

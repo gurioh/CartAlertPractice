@@ -3,8 +3,8 @@ package org.practice.cartalert.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.practice.cartalert.entity.Order;
-import org.practice.cartalert.entity.OrderItem;
+import org.practice.cartalert.repository.entity.Order;
+import org.practice.cartalert.repository.entity.OrderItem;
 import org.practice.cartalert.repository.OrderItemRepository;
 import org.practice.cartalert.repository.OrderRepository;
 import org.practice.cartalert.service.dto.OrderItemResponseDTO;

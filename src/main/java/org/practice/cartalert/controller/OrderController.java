@@ -2,7 +2,7 @@ package org.practice.cartalert.controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.practice.cartalert.entity.Order;
+import org.practice.cartalert.repository.entity.Order;
 import org.practice.cartalert.service.OrderService;
 import org.practice.cartalert.service.dto.OrderListResponseDTO;
 import org.practice.cartalert.service.dto.OrderRequestDTO;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 
 

@@ -1,9 +1,8 @@
 package org.practice.cartalert.event.order;
 
-import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Getter;
-import org.practice.cartalert.entity.OrderItem;
+import org.practice.cartalert.repository.entity.OrderItem;
 import org.practice.cartalert.event.DomainEvent;
 
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package org.practice.cartalert.entity;
+package org.practice.cartalert.repository.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

@@ -1,4 +1,4 @@
-package org.practice.cartalert.entity;
+package org.practice.cartalert.repository.entity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,7 +12,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.practice.cartalert.event.Events;
 import org.practice.cartalert.event.order.OrderCreateEvent;
-import org.practice.cartalert.service.dto.CartRequestDTO;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

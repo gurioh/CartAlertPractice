@@ -3,10 +3,8 @@ package org.practice.cartalert.kafka.order;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.practice.cartalert.entity.Order;
-import org.practice.cartalert.entity.OrderItem;
-import org.practice.cartalert.kafka.stock.StockMessage;
-import org.practice.cartalert.repository.CartItemRepository;
+import org.practice.cartalert.repository.entity.Order;
+import org.practice.cartalert.repository.entity.OrderItem;
 import org.practice.cartalert.repository.OrderItemRepository;
 import org.practice.cartalert.repository.OrderRepository;
 import org.practice.cartalert.service.CartItemService;
@@ -21,7 +19,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

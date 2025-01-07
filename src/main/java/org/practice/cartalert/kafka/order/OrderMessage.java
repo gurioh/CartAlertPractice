@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.practice.cartalert.entity.OrderItem;
-import org.practice.cartalert.service.dto.CartRequestDTO;
+import org.practice.cartalert.repository.entity.OrderItem;
 
 import java.math.BigDecimal;
 import java.util.List;

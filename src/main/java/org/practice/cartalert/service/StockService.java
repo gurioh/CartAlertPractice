@@ -5,7 +5,7 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.practice.cartalert.entity.Stock;
+import org.practice.cartalert.repository.entity.Stock;
 import org.practice.cartalert.repository.StockRepository;
 import org.springframework.stereotype.Service;
 

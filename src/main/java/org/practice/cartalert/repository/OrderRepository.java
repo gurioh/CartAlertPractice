@@ -1,6 +1,6 @@
 package org.practice.cartalert.repository;
 
-import org.practice.cartalert.entity.Order;
+import org.practice.cartalert.repository.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

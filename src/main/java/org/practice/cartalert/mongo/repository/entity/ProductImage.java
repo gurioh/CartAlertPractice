@@ -1,4 +1,4 @@
-package org.practice.cartalert.entity;
+package org.practice.cartalert.mongo.repository.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -10,7 +10,6 @@ import org.practice.cartalert.auth.jwt.JwtAuthenticationFilter;
 import org.practice.cartalert.auth.jwt.JwtProperties;
 import org.practice.cartalert.auth.jwt.JwtTokenProvider;
 import org.practice.cartalert.auth.jwt.JwtUtils;
-import org.practice.cartalert.entity.User;
 import org.practice.cartalert.service.UserAuthTokenService;
 import org.practice.cartalert.service.dto.LogoutResponse;
 import org.springframework.context.annotation.Bean;
@@ -49,7 +48,7 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**", "/user/**").permitAll()
+                        .requestMatchers("/auth/**", "/user/**", "/product/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)

@@ -1,7 +1,7 @@
 package org.practice.cartalert.service;
 
 
-import org.practice.cartalert.entity.User;
+import org.practice.cartalert.repository.entity.User;
 import org.practice.cartalert.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;

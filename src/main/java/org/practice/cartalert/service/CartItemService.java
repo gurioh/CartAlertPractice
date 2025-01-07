@@ -4,7 +4,7 @@ package org.practice.cartalert.service;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.practice.cartalert.entity.CartItem;
+import org.practice.cartalert.repository.entity.CartItem;
 import org.practice.cartalert.repository.CartItemRepository;
 import org.practice.cartalert.service.mapper.CartItemMapper;
 import org.practice.cartalert.service.dto.CartRequestDTO;
